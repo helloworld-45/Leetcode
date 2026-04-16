@@ -5,7 +5,7 @@ class Solution {
             if(i%5==0 && i%3==0) ans.add("FizzBuzz");
            else if(i%3==0) ans.add("Fizz");
             else if(i%5==0) ans.add("Buzz");
-            else ans.add(i+""); // other wise we can write String.valueOf(i) it will accept integer
+            else ans.add(String.valueOf(i)); // other wise we can write String.valueOf(i) it will accept integer
         }
         return ans;
     }
