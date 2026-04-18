@@ -3,18 +3,12 @@ class Solution {
         int n=nums.length;
         if(n==0) return 0; 
         int k=1;
-        int i=1;
-        while(i<n){
-           if(nums[i]==nums[k-1]){
-            i++;
-            continue;
-           }
-           else{
-           nums[k]=nums[i];
-           k++;
-           i++;
-           }
+       for(int i=1;i<n;i++){
+        if(nums[i]!=nums[k-1]){
+            nums[k]=nums[i];
+            k++;
         }
+       }
         return k;
     }
 }
