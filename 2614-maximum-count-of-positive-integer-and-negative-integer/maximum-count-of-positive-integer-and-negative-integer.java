@@ -30,3 +30,8 @@ class Solution {
     }
 }
 
+// Binary search approach (O(log n))
+// Find:
+// 1) Count of negatives = first index where element > -1
+// 2) Count of positives = n - first index where element > 0
+// Return max of both
