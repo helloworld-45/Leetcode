@@ -1,22 +1,25 @@
 class Solution {
     public String toLowerCase(String s) {
-        String result = "";
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            if (ch >= 'A' && ch <= 'Z') {
-                ch = (char)(ch + 32); // convert to lowercase
+        char arr[] = s.toCharArray();
+        for(int i=0;i<arr.length;i++){
+            if(arr[i] >='A' && arr[i] <='Z'){
+                arr[i] = (char)(arr[i] + 32);
             }
-            result += ch;
         }
-        return result;
+        return new String(arr);
     }
 }
 
 // Approach:
-// We iterate through each character of the string.
-// If the character is uppercase ('A' to 'Z'), we convert it to lowercase
-// by adding 32 (ASCII difference between uppercase and lowercase).
-// Otherwise, we keep the character unchanged.
+// Convert the string into a character array to allow in-place modification.
+// Traverse each character:
+// - If it lies between 'A' and 'Z', convert it to lowercase by adding 32
+//   (since ASCII difference between uppercase and lowercase is 32).
+// - Otherwise, leave it unchanged.
+// Finally, convert the modified character array back to a string.
 
 // Time Complexity: O(n)
+// We traverse the string once.
+
 // Space Complexity: O(n)
+// Character array is used to store modified result.
