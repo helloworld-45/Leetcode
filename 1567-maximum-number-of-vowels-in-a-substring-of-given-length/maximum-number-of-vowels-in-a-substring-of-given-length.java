@@ -4,11 +4,9 @@ class Solution {
         int count=0;
         int max=0;
         for(int right=0;right<s.length();right++){
-            if(isvowel(s.charAt(right)))count++;
-            if((right -left +1)> k){
-                if(isvowel(s.charAt(left))){
-                    count--;
-                }
+            if(isvowel(s.charAt(right))) count++;
+            if((right -left +1)>k){
+                if(isvowel(s.charAt(left)))count--;
                 left++;
             }
             if((right-left+1)==k){
@@ -20,6 +18,7 @@ class Solution {
     public boolean isvowel(char ch){
         return ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u';
     }
+
 }
 /*
  * Sliding Window:
