@@ -1,29 +1,27 @@
 class Solution {
     public int maxSatisfied(int[] customers, int[] grumpy, int minutes) {
-        int satisfy=0;
+        int base=0;
         for(int i=0;i<customers.length;i++){
             if(grumpy[i]==0){
-                satisfy+=customers[i];
+                base+=customers[i];
             }
         }
-        //for extra satisfy that can be obtained using slidding window since question says consecutive minutes
-        int extrasatisfy=0;
-        int maxsatisfy=0;
+        int extra=0;
+        int extramax=0;
         int left=0;
         for(int right=0;right<customers.length;right++){
             if(grumpy[right]==1){
-                extrasatisfy+=customers[right];
+                extra+=customers[right];
             }
             if((right-left+1)>minutes){
                 if(grumpy[left]==1){
-                    extrasatisfy-=customers[left];
+                    extra-=customers[left];
                 }
                 left++;
             }
-            maxsatisfy=Math.max(maxsatisfy,extrasatisfy);
+            extramax=Math.max(extra,extramax);
         }
-        int result=satisfy+maxsatisfy;
-        return result;
+        return extramax+base;
     }
 }
 // First count all customers who are already satisfied when the owner is not grumpy.
